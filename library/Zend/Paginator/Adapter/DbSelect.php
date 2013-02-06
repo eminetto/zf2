@@ -93,7 +93,7 @@ class DbSelect implements AdapterInterface
 
     /**
      * Returns the total number of rows in the result set.
-     *
+     * 
      * @return integer
      */
     public function count()
