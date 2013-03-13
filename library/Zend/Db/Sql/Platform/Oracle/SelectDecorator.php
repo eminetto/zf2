@@ -111,10 +111,7 @@ class SelectDecorator extends Select implements PlatformDecoratorInterface
         if ($parameterContainer) {
             if ($this->limit === null) {
                 array_push($sqls, ') b ) WHERE b_rownum > (:offset)');
-                $parameterContainer->offsetSet('offset', $this->offset, $parameterContainer::TYPE_INTEGER);
-                $parameterContainer->offsetSet('limit', $this->limit, $parameterContainer::TYPE_INTEGER);
-
-                $parameterContainer->offsetSet('offset', $this->offset, $parameterContainer::TYPE_INTEGER);                
+                $parameterContainer->offsetSet('offset', $this->offset, $parameterContainer::TYPE_INTEGER);              
             } else {
                 // create bottom part of query, with offset and limit using row_number
                 array_push($sqls, ') b WHERE rownum <= (:offset+:limit)) WHERE b_rownum >= (:offset + 1)');
